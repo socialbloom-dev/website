@@ -6,6 +6,7 @@ import SiteHeader from "@/components/site-header"
 import SiteModals from "@/components/site-modals"
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://socialbloom.com'),
   title: "Social Bloom - Digital Marketing Agency | Lead Generation & Growth",
   description:
     "Social Bloom is a premier digital marketing agency specializing in lead generation, inbound marketing, and outbound sales strategies. We help businesses achieve 155% growth with proven marketing solutions.",

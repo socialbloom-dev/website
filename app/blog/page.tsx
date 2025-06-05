@@ -5,10 +5,14 @@ import { getAllBlogPosts } from '@/lib/blog-data'
 export const metadata: Metadata = {
   title: 'Blog - Social Bloom | Digital Marketing Insights',
   description: 'Latest insights on digital marketing, lead generation, and business growth strategies from Social Bloom experts.',
+  openGraph: {
+    title: 'Blog - Social Bloom | Digital Marketing Insights',
+    description: 'Latest insights on digital marketing, lead generation, and business growth strategies from Social Bloom experts.',
+  },
 }
 
 export default async function BlogPage() {
-  const posts = getAllBlogPosts()
+  const posts = await getAllBlogPosts()
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0a0a18] via-[#3d3b7a] to-[#0a0a18] pt-32 pb-20">
