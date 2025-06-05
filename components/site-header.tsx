@@ -107,7 +107,7 @@ export default function SiteHeader() {
                 ))}
                 <motion.a
                   key="Blog"
-                  href="https://blog.socialbloom.io"
+                  href="/blog"
                   className="text-white hover:text-[#2DE6C4] transition-all duration-300 font-medium text-sm xl:text-base"
                   whileHover={{ scale: 1.05 }}
                 >
@@ -156,7 +156,7 @@ export default function SiteHeader() {
                       { href: "/services/lead-generation", label: "Lead Generation" },
                       { href: "/#faq", label: "FAQ" },
                       { href: "/#case-studies", label: "Case Studies" },
-                      { href: "https://blog.socialbloom.io", label: "Blog" },
+                      { href: "/blog", label: "Blog" },
                     ].map((link) => (
                       <Link
                         key={link.href}
