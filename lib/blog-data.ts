@@ -1,5 +1,6 @@
 import type { BlogPost } from '@/types/data'
 import { request, gql } from 'graphql-request'
+import { unstable_cache } from 'next/cache'
 
 const DATOCMS_API_TOKEN = process.env.DATOCMS_API_TOKEN || '26a1da4041330b18f894f4e25db08f'
 const DATOCMS_API_URL = 'https://graphql.datocms.com/'
@@ -264,39 +265,51 @@ function transformDatoCMSPost(post: DatoCMSBlogPost, index: number): BlogPost {
   return result
 }
 
-// Function to get all blog posts from DatoCMS
-export async function getAllBlogPosts(): Promise<BlogPost[]> {
-  try {
-    console.log('Fetching blog posts from DatoCMS...')
-    
-    const data = await request<AllBlogPostsResponse>(
-      DATOCMS_API_URL,
-      GET_ALL_BLOG_POSTS,
-      {},
-      {
-        Authorization: `Bearer ${DATOCMS_API_TOKEN}`,
+// Cached function to get all blog posts from DatoCMS
+const getCachedBlogPosts = unstable_cache(
+  async (): Promise<BlogPost[]> => {
+    try {
+      console.log('Fetching blog posts from DatoCMS...')
+      
+      const data = await request<AllBlogPostsResponse>(
+        DATOCMS_API_URL,
+        GET_ALL_BLOG_POSTS,
+        {},
+        {
+          Authorization: `Bearer ${DATOCMS_API_TOKEN}`,
+        }
+      )
+
+      console.log('DatoCMS Response received, posts count:', data.allBlogPosts?.length || 0)
+
+      if (!data.allBlogPosts || data.allBlogPosts.length === 0) {
+        console.log('No blog posts found in DatoCMS. Please create some blog posts in your DatoCMS admin panel.')
+        return []
       }
-    )
 
-    console.log('DatoCMS Response received, posts count:', data.allBlogPosts?.length || 0)
+      console.log(`Found ${data.allBlogPosts.length} blog posts in DatoCMS`)
 
-    if (!data.allBlogPosts || data.allBlogPosts.length === 0) {
-      console.log('No blog posts found in DatoCMS. Please create some blog posts in your DatoCMS admin panel.')
+      return data.allBlogPosts
+        .filter((post: DatoCMSBlogPost) => post._status === 'published')
+        .map(transformDatoCMSPost)
+        .sort((a: BlogPost, b: BlogPost) => 
+          new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+        )
+    } catch (error) {
+      console.error('Error fetching blog posts from DatoCMS:', error)
       return []
     }
-
-    console.log(`Found ${data.allBlogPosts.length} blog posts in DatoCMS`)
-
-    return data.allBlogPosts
-      .filter((post: DatoCMSBlogPost) => post._status === 'published')
-      .map(transformDatoCMSPost)
-      .sort((a: BlogPost, b: BlogPost) => 
-        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-      )
-  } catch (error) {
-    console.error('Error fetching blog posts from DatoCMS:', error)
-    return []
+  },
+  ['blog-posts'],
+  { 
+    tags: ['blog-posts'],
+    revalidate: 3600 // Cache for 1 hour, but can be invalidated via webhook
   }
+)
+
+// Function to get all blog posts from DatoCMS
+export async function getAllBlogPosts(): Promise<BlogPost[]> {
+  return getCachedBlogPosts()
 }
 
 // Function to get a single blog post by slug from DatoCMS
