@@ -257,3 +257,24 @@ body {
   color: white;
   font-weight: 600;
 }
+
+/* Image styling for blog content */
+.structured-text-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  margin: 1.5rem 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.structured-text-content figure {
+  margin: 2rem 0;
+}
+
+.structured-text-content figcaption {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.875rem;
+  font-style: italic;
+  text-align: center;
+  margin-top: 0.75rem;
+}

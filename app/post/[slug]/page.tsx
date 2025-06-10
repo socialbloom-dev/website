@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import { StructuredText } from 'react-datocms'
 import { getBlogPostBySlug, getAllBlogPosts } from '@/lib/blog-data'
 
@@ -92,7 +93,67 @@ export default async function BlogPost({ params }: BlogPostProps) {
           <div className="dato-rich-text">
             {post.content?.value ? (
               <div className="structured-text-content">
-                <StructuredText data={post.content} />
+                <StructuredText 
+                  data={post.content}
+                  renderBlock={({ record }) => {
+                    // Handle image blocks
+                    if (record._modelApiKey === 'image' || record.__typename === 'ImageRecord') {
+                      const imageUrl = record.image?.url || record.url
+                      const imageAlt = record.image?.alt || record.alt || record.caption || 'Blog image'
+                      const imageWidth = record.image?.width || 800
+                      const imageHeight = record.image?.height || 400
+                      
+                      if (!imageUrl) return null
+                      
+                      return (
+                        <div className="my-8">
+                          <Image
+                            src={imageUrl}
+                            alt={imageAlt}
+                            width={imageWidth}
+                            height={imageHeight}
+                            className="rounded-lg w-full h-auto border border-white/10"
+                            priority={false}
+                          />
+                          {record.caption && (
+                            <p className="text-sm text-white/60 italic mt-3 text-center">
+                              {record.caption}
+                            </p>
+                          )}
+                        </div>
+                      )
+                    }
+                    
+                    return null
+                  }}
+                  renderInlineRecord={({ record }) => {
+                    // Handle inline images
+                    if (record._modelApiKey === 'image' || record.__typename === 'ImageRecord') {
+                      const imageUrl = record.image?.url || record.url
+                      const imageAlt = record.image?.alt || record.alt || 'Inline image'
+                      
+                      if (!imageUrl) return null
+                      
+                      return (
+                        <span className="inline-block mx-1">
+                          <Image
+                            src={imageUrl}
+                            alt={imageAlt}
+                            width={200}
+                            height={150}
+                            className="rounded-lg inline-block max-w-full h-auto"
+                          />
+                        </span>
+                      )
+                    }
+                    
+                    return null
+                  }}
+                  renderLinkToRecord={({ record, children }) => {
+                    // Handle linked records
+                    return <span>{children}</span>
+                  }}
+                />
               </div>
             ) : (
               <p className="text-white/70 italic">No content available</p>

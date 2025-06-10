@@ -34,7 +34,7 @@ interface AllBlogPostsResponse {
   allBlogPosts: DatoCMSBlogPost[]
 }
 
-// Updated GraphQL query using the actual field names from DatoCMS
+// Updated GraphQL query to fetch image data from blocks
 const GET_ALL_BLOG_POSTS = gql`
   query GetAllBlogPosts {
     allBlogPosts {
@@ -48,8 +48,21 @@ const GET_ALL_BLOG_POSTS = gql`
       headings
       richText {
         value
-        blocks
-        links
+        blocks {
+          ... on ImageRecord {
+            id
+            _modelApiKey
+            __typename
+            image {
+              url
+              alt
+              width
+              height
+              title
+            }
+            alt
+          }
+        }
       }
       date
       media {
@@ -100,6 +113,8 @@ function transformDatoCMSPost(post: DatoCMSBlogPost, index: number): BlogPost {
     headings: post.headings,
     hasRichText: !!post.richText,
     richTextKeys: post.richText ? Object.keys(post.richText) : [],
+    blocksCount: post.richText?.blocks?.length || 0,
+    linksCount: post.richText?.links?.length || 0,
     status: post._status,
     publishedAt: post._firstPublishedAt
   })
@@ -124,7 +139,7 @@ function transformDatoCMSPost(post: DatoCMSBlogPost, index: number): BlogPost {
     title,
     slug,
     excerpt: shortExcerpt,
-    content: post.richText || { value: null }, // Return raw DatoCMS rich text structure
+    content: post.richText || { value: null }, // Return raw DatoCMS rich text structure with blocks
     author: 'Social Bloom Team',
     publishedAt,
     tags: [],
@@ -151,7 +166,9 @@ export const getAllBlogPosts = unstable_cache(
           id: p.id,
           slug: p.slug,
           headings: p.headings,
-          status: p._status
+          status: p._status,
+          blocksCount: p.richText?.blocks?.length || 0,
+          linksCount: p.richText?.links?.length || 0
         })) || []
       })
       
