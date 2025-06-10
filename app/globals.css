@@ -92,3 +92,168 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* DatoCMS Structured Text Styling */
+.structured-text-content p {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
+}
+
+.structured-text-content h1 {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  margin-top: 2rem;
+}
+
+.structured-text-content h2 {
+  color: white;
+  font-size: 1.875rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  margin-top: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 0.75rem;
+}
+
+.structured-text-content h3 {
+  color: #2DE6C4;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  margin-top: 2rem;
+}
+
+.structured-text-content h4 {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+}
+
+.structured-text-content h5 {
+  color: white;
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+}
+
+.structured-text-content h6 {
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+}
+
+.structured-text-content ul {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.5rem;
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.structured-text-content ol {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.5rem;
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+}
+
+.structured-text-content li {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.structured-text-content li::marker {
+  color: #2DE6C4;
+}
+
+.structured-text-content blockquote {
+  border-left: 4px solid #2DE6C4;
+  padding-left: 1.5rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1.5rem;
+}
+
+.structured-text-content a {
+  color: #2DE6C4;
+  text-decoration: underline;
+  text-decoration-color: rgba(45, 230, 196, 0.5);
+  transition: all 0.3s ease;
+}
+
+.structured-text-content a:hover {
+  text-decoration-color: #2DE6C4;
+}
+
+.structured-text-content strong {
+  color: white;
+  font-weight: 600;
+}
+
+.structured-text-content em {
+  color: rgba(255, 255, 255, 0.9);
+  font-style: italic;
+}
+
+.structured-text-content u {
+  color: white;
+  text-decoration: underline;
+  text-decoration-color: rgba(45, 230, 196, 0.5);
+}
+
+.structured-text-content code {
+  color: #2DE6C4;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-family: ui-monospace, SFMono-Regular, monospace;
+}
+
+.structured-text-content pre {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+
+.structured-text-content pre code {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
+.structured-text-content hr {
+  border-color: rgba(255, 255, 255, 0.2);
+  margin: 2rem 0;
+}
+
+.structured-text-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+}
+
+.structured-text-content th,
+.structured-text-content td {
+  color: rgba(255, 255, 255, 0.8);
+  padding: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: left;
+}
+
+.structured-text-content th {
+  background-color: rgba(45, 230, 196, 0.1);
+  color: white;
+  font-weight: 600;
+}

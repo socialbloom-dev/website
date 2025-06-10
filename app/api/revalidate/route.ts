@@ -1,39 +1,41 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { revalidatePath, revalidateTag } from 'next/cache'
+import { revalidatePath } from 'next/cache'
 
 export async function POST(request: NextRequest) {
   try {
-    console.log('=== REVALIDATION WEBHOOK TRIGGERED ===')
-    
-    // Get the request body
+    // Check for secret to confirm this is a valid request
     const body = await request.json()
-    console.log('Webhook payload:', JSON.stringify(body, null, 2))
+    const secret = body.secret || request.headers.get('x-revalidate-secret')
     
-    // Check if this is from DatoCMS
-    const isDatoCMS = request.headers.get('x-datocms-webhook-signature')
-    console.log('Is DatoCMS webhook:', !!isDatoCMS)
-    
-    // Revalidate blog-related paths
+    if (secret !== process.env.REVALIDATE_SECRET) {
+      console.log('Invalid revalidation secret')
+      return NextResponse.json({ message: 'Invalid secret' }, { status: 401 })
+    }
+
+    // Log the webhook for debugging
+    console.log('DatoCMS webhook received:', {
+      timestamp: new Date().toISOString(),
+      payload: body
+    })
+
+    // Revalidate the blog pages
     revalidatePath('/blog')
-    revalidatePath('/post/[slug]', 'page')
+    revalidatePath('/post')
     
-    // You can also revalidate specific tags if you use them
-    revalidateTag('blog-posts')
-    
-    console.log('Cache revalidated for blog paths')
+    // Also revalidate the homepage if blog content is shown there
+    revalidatePath('/')
+
+    console.log('Successfully revalidated blog paths')
     
     return NextResponse.json({ 
-      success: true, 
-      message: 'Cache revalidated',
-      timestamp: new Date().toISOString()
+      revalidated: true,
+      timestamp: new Date().toISOString(),
+      paths: ['/blog', '/post', '/']
     })
   } catch (error) {
-    console.error('Revalidation webhook error:', error)
+    console.error('Revalidation error:', error)
     return NextResponse.json(
-      { 
-        success: false, 
-        error: error instanceof Error ? error.message : 'Unknown error' 
-      },
+      { message: 'Error revalidating', error: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }
     )
   }

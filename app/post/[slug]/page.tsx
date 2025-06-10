@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import { StructuredText } from 'react-datocms'
 import { getBlogPostBySlug, getAllBlogPosts } from '@/lib/blog-data'
 
 interface BlogPostProps {
@@ -67,8 +68,14 @@ export default async function BlogPost({ params }: BlogPostProps) {
                 month: 'long', 
                 day: 'numeric' 
               })}</time>
+              {post.readTime && (
+                <>
+                  <span>•</span>
+                  <span className="text-sm">{post.readTime} min read</span>
+                </>
+              )}
             </div>
-            {post.tags && (
+            {post.tags && post.tags.length > 0 && (
               <div className="flex flex-wrap gap-2">
                 {post.tags.map((tag) => (
                   <span
@@ -82,26 +89,15 @@ export default async function BlogPost({ params }: BlogPostProps) {
             )}
           </header>
           
-          <div 
-            className="prose prose-invert prose-lg max-w-none 
-            prose-headings:text-white prose-headings:font-bold prose-headings:mb-6 prose-headings:mt-8
-            prose-h1:text-4xl prose-h2:text-3xl prose-h2:border-b prose-h2:border-white/20 prose-h2:pb-3
-            prose-h3:text-2xl prose-h3:text-[#2DE6C4] prose-h4:text-xl prose-h5:text-lg prose-h6:text-base
-            prose-p:text-white/80 prose-p:leading-relaxed prose-p:mb-6
-            prose-strong:text-white prose-strong:font-semibold
-            prose-em:text-white/90 prose-em:italic
-            prose-u:text-white prose-u:underline prose-u:decoration-[#2DE6C4]/50
-            prose-code:text-[#2DE6C4] prose-code:bg-white/10 prose-code:px-2 prose-code:py-1 prose-code:rounded
-            prose-ul:text-white/80 prose-ul:mb-6 prose-ul:list-disc prose-ul:pl-6
-            prose-ol:text-white/80 prose-ol:mb-6 prose-ol:list-decimal prose-ol:pl-6
-            prose-li:text-white/80 prose-li:mb-2 prose-li:leading-relaxed prose-li:marker:text-[#2DE6C4]
-            prose-a:text-[#2DE6C4] prose-a:underline prose-a:decoration-[#2DE6C4]/50 prose-a:hover:decoration-[#2DE6C4] prose-a:transition-all
-            prose-blockquote:border-l-4 prose-blockquote:border-[#2DE6C4] prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-white/70
-            prose-hr:border-white/20 prose-hr:my-8
-            first:prose-p:text-xl first:prose-p:text-white/90 first:prose-p:font-medium first:prose-p:leading-relaxed
-            [&>*:first-child]:mt-0"
-            dangerouslySetInnerHTML={{ __html: post.content }} 
-          />
+          <div className="dato-rich-text">
+            {post.content?.value ? (
+              <div className="structured-text-content">
+                <StructuredText data={post.content} />
+              </div>
+            ) : (
+              <p className="text-white/70 italic">No content available</p>
+            )}
+          </div>
         </article>
 
         {/* Call to Action */}

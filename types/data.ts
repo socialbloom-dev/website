@@ -24,11 +24,18 @@ export interface FAQ {
 }
 
 export interface BlogPost {
+  id: string
   slug: string
   title: string
   excerpt: string
-  content: string
+  content: {
+    value: any
+    blocks?: any[]
+    links?: any[]
+  } | null
   author: string
   publishedAt: string
   tags?: string[]
+  featured?: boolean
+  readTime?: number
 }
