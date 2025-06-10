@@ -257,3 +257,55 @@ body {
   color: white;
   font-weight: 600;
 }
+
+/* Image styling for blog content */
+.structured-text-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  margin: 1.5rem 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.structured-text-content figure {
+  margin: 2rem 0;
+}
+
+.structured-text-content figcaption {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.875rem;
+  font-style: italic;
+  text-align: center;
+  margin-top: 0.75rem;
+}
+
+/* Gallery grid styling */
+.structured-text-content .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.structured-text-content .gallery-grid img {
+  margin: 0;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 16/9;
+}
+
+/* Responsive image containers */
+.structured-text-content .image-container {
+  position: relative;
+  margin: 2rem 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.structured-text-content .image-container img {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+}

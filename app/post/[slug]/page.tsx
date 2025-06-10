@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import { StructuredText } from 'react-datocms'
 import { getBlogPostBySlug, getAllBlogPosts } from '@/lib/blog-data'
 
@@ -92,7 +93,74 @@ export default async function BlogPost({ params }: BlogPostProps) {
           <div className="dato-rich-text">
             {post.content?.value ? (
               <div className="structured-text-content">
-                <StructuredText data={post.content} />
+                <StructuredText 
+                  data={post.content}
+                  renderLinkToRecord={({ record, children, transformedMeta }) => {
+                    // Handle linked records (if you have any)
+                    return <span>{children}</span>
+                  }}
+                  renderInlineRecord={({ record }) => {
+                    // Handle inline records like images
+                    if (record.__typename === 'ImageRecord' || record._modelApiKey === 'image') {
+                      return (
+                        <span className="inline-block mx-1">
+                          <Image
+                            src={record.image?.url || record.url}
+                            alt={record.image?.alt || record.alt || 'Blog image'}
+                            width={record.image?.width || 200}
+                            height={record.image?.height || 150}
+                            className="rounded-lg inline-block max-w-full h-auto"
+                          />
+                        </span>
+                      )
+                    }
+                    return null
+                  }}
+                  renderBlock={({ record }) => {
+                    // Handle block records (like full-width images)
+                    if (record.__typename === 'ImageRecord' || record._modelApiKey === 'image') {
+                      return (
+                        <div className="my-8">
+                          <Image
+                            src={record.image?.url || record.url}
+                            alt={record.image?.alt || record.alt || 'Blog image'}
+                            width={record.image?.width || 800}
+                            height={record.image?.height || 400}
+                            className="rounded-lg w-full h-auto border border-white/10"
+                            priority={false}
+                          />
+                          {(record.image?.alt || record.alt || record.caption) && (
+                            <p className="text-sm text-white/60 italic mt-3 text-center">
+                              {record.image?.alt || record.alt || record.caption}
+                            </p>
+                          )}
+                        </div>
+                      )
+                    }
+                    
+                    // Handle other block types
+                    if (record._modelApiKey === 'gallery' && record.images) {
+                      return (
+                        <div className="my-8">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {record.images.map((image: any, index: number) => (
+                              <Image
+                                key={index}
+                                src={image.url}
+                                alt={image.alt || `Gallery image ${index + 1}`}
+                                width={image.width || 400}
+                                height={image.height || 300}
+                                className="rounded-lg w-full h-auto border border-white/10"
+                              />
+                            ))}
+                          </div>
+                        </div>
+                      )
+                    }
+                    
+                    return null
+                  }}
+                />
               </div>
             ) : (
               <p className="text-white/70 italic">No content available</p>
