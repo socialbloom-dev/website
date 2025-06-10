@@ -34,7 +34,7 @@ interface AllBlogPostsResponse {
   allBlogPosts: DatoCMSBlogPost[]
 }
 
-// Updated GraphQL query to fetch image data from blocks
+// Updated GraphQL query using the actual field names from DatoCMS
 const GET_ALL_BLOG_POSTS = gql`
   query GetAllBlogPosts {
     allBlogPosts {
@@ -48,48 +48,8 @@ const GET_ALL_BLOG_POSTS = gql`
       headings
       richText {
         value
-        blocks {
-          ... on ImageRecord {
-            id
-            _modelApiKey
-            __typename
-            image {
-              url
-              alt
-              width
-              height
-              title
-            }
-            caption
-          }
-          ... on GalleryRecord {
-            id
-            _modelApiKey
-            __typename
-            images {
-              url
-              alt
-              width
-              height
-              title
-            }
-          }
-        }
-        links {
-          ... on ImageRecord {
-            id
-            _modelApiKey
-            __typename
-            image {
-              url
-              alt
-              width
-              height
-              title
-            }
-            caption
-          }
-        }
+        blocks
+        links
       }
       date
       media {
@@ -140,8 +100,6 @@ function transformDatoCMSPost(post: DatoCMSBlogPost, index: number): BlogPost {
     headings: post.headings,
     hasRichText: !!post.richText,
     richTextKeys: post.richText ? Object.keys(post.richText) : [],
-    blocksCount: post.richText?.blocks?.length || 0,
-    linksCount: post.richText?.links?.length || 0,
     status: post._status,
     publishedAt: post._firstPublishedAt
   })
@@ -166,7 +124,7 @@ function transformDatoCMSPost(post: DatoCMSBlogPost, index: number): BlogPost {
     title,
     slug,
     excerpt: shortExcerpt,
-    content: post.richText || { value: null }, // Return raw DatoCMS rich text structure with blocks
+    content: post.richText || { value: null }, // Return raw DatoCMS rich text structure
     author: 'Social Bloom Team',
     publishedAt,
     tags: [],
@@ -193,9 +151,7 @@ export const getAllBlogPosts = unstable_cache(
           id: p.id,
           slug: p.slug,
           headings: p.headings,
-          status: p._status,
-          blocksCount: p.richText?.blocks?.length || 0,
-          linksCount: p.richText?.links?.length || 0
+          status: p._status
         })) || []
       })
       
