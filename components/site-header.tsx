@@ -84,12 +84,6 @@ export default function SiteHeader() {
                     >
                       Outbound Marketing
                     </Link>
-                    <Link
-                      href="/services/lead-generation"
-                      className="block px-4 py-3 text-white hover:text-[#2DE6C4] hover:bg-[#4a5568]/20 rounded-xl transition-all duration-300 text-sm"
-                    >
-                      Lead Generation
-                    </Link>
                   </motion.div>
                 </div>
                 {[
@@ -153,7 +147,6 @@ export default function SiteHeader() {
                     {[
                       { href: "/services/inbound", label: "Inbound Marketing" },
                       { href: "/services/outbound", label: "Outbound Marketing" },
-                      { href: "/services/lead-generation", label: "Lead Generation" },
                       { href: "/#faq", label: "FAQ" },
                       { href: "/#case-studies", label: "Case Studies" },
                       { href: "/blog", label: "Blog" },
