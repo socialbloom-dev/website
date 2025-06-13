@@ -311,7 +311,6 @@ export default function SocialBloomWebsite() {
                   {[
                     { key: "outbound", label: "Outbound Marketing" },
                     { key: "inbound", label: "Inbound Marketing" },
-                    { key: "leadgen", label: "Lead Generation" },
                   ].map((service) => (
                     <motion.button
                       key={service.key}
