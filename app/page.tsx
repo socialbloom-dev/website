@@ -24,8 +24,8 @@ export default function SocialBloomWebsite() {
   const [activeService, setActiveService] = useState("outbound")
   const [animatedNumbers, setAnimatedNumbers] = useState({
     revenue: 0,
-    clients: 0,
-    growth: 0,
+    leads: 0,
+    clientSuccess: 0,
   })
   const [currentDate, setCurrentDate] = useState(new Date())
   const [openFaq, setOpenFaq] = useState<number | null>(null)
@@ -44,7 +44,7 @@ export default function SocialBloomWebsite() {
   // Effects
   useEffect(() => {
     const timer = setTimeout(() => {
-      setAnimatedNumbers({ revenue: 180, clients: 43, growth: 155 })
+      setAnimatedNumbers({ revenue: 200, leads: 18000, clientSuccess: 100 })
     }, 1000)
     return () => clearTimeout(timer)
   }, [])
@@ -182,7 +182,7 @@ export default function SocialBloomWebsite() {
                 />
                 As of {currentDate.toLocaleDateString()}
               </div>
-              <h3 className="text-base sm:text-lg md:text-xl font-bold text-white">B2B Solutions that drive growth</h3>
+              <h3 className="text-base sm:text-lg md:text-xl font-bold text-white">B2B solutions that drive growth</h3>
             </motion.div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-center">
@@ -204,7 +204,12 @@ export default function SocialBloomWebsite() {
                       animate={{ opacity: 1 }}
                       transition={{ duration: 1, delay: 2 + index * 0.3 }}
                     >
-                      {animatedNumbers[stat.label.toLowerCase() as keyof typeof animatedNumbers] || stat.value}
+                      {(() => {
+                        if (stat.label === "Generated") return animatedNumbers.revenue || stat.value;
+                        if (stat.label === "Leads Generated") return animatedNumbers.leads || stat.value;
+                        if (stat.label === "Client Success") return animatedNumbers.clientSuccess || stat.value;
+                        return stat.value;
+                      })()}
                       {stat.suffix}
                     </motion.div>
                     <div className="text-white/80 text-xs sm:text-sm">{stat.label}</div>

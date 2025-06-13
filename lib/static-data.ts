@@ -196,13 +196,13 @@ export const chartData = [
 ]
 
 export const statsData = [
-  { value: 180, suffix: "M", label: "Generated", color: "#2DE6C4" },
-  { value: 43, suffix: "", label: "Clients", color: "#2DE6C4" },
-  { value: 155, suffix: "%", label: "Growth", color: "#2DE6C4" },
+  { value: 200, suffix: "M", label: "Generated", color: "#2DE6C4" },
+  { value: 18000, suffix: "", label: "Leads Generated", color: "#2DE6C4" },
+  { value: 100, suffix: "%", label: "Client Success", color: "#2DE6C4" },
 ]
 
 export const ctaStats = [
-  { value: "$180M", label: "Generated for our clients", color: "#2DE6C4" },
-  { value: "43", label: "Clients we have", color: "#2DE6C4" },
-  { value: "155%", label: "Growth driven so far", color: "#2DE6C4" },
+  { value: "$200M", label: "Generated for our clients", color: "#2DE6C4" },
+  { value: "18,000", label: "Leads Generated", color: "#2DE6C4" },
+  { value: "100%", label: "Client Success", color: "#2DE6C4" },
 ]
