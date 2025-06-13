@@ -739,7 +739,7 @@ export default function SocialBloomWebsite() {
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              Join over 100+ businesses that have unlocked 10X ROI with us—scaling faster and dominating their markets.
+              Join over 100's of businesses that have unlocked 10X ROI with us—scaling faster and dominating their markets.
             </motion.p>
 
             <motion.div
@@ -837,10 +837,10 @@ export default function SocialBloomWebsite() {
 
               <div className="flex justify-center gap-4 sm:gap-6 mb-3 sm:mb-4">
                 <Link
-                  href="/terms"
-                  className="text-white/70 hover:text-[#2DE6C4] transition-all duration-300 text-xs sm:text-sm"
+                  href="/blog"
+                  className="text-[#2DE6C4] hover:text-white transition-all duration-300 text-xs sm:text-sm"
                 >
-                  Terms of Service
+                  Blog
                 </Link>
                 <span className="text-white/30 text-xs sm:text-sm">|</span>
                 <Link
