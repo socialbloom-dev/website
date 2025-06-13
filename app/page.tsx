@@ -133,7 +133,7 @@ export default function SocialBloomWebsite() {
             >
               {[
                 { rating: "4.9", platform: "Clutch" },
-                { rating: "4.6", platform: "Google Reviews" }, // Changed from "5.5" to "4.6"
+                { rating: "5", platform: "Google Reviews" },
               ].map((badge, index) => (
                 <motion.div
                   key={badge.platform}
@@ -775,7 +775,7 @@ export default function SocialBloomWebsite() {
             >
               {[
                 { rating: "4.9", platform: "Clutch" },
-                { rating: "4.6", platform: "Google Reviews" }, // Changed from "5.5" to "4.6"
+                { rating: "5", platform: "Google Reviews" },
               ].map((badge) => (
                 <motion.div
                   key={badge.platform}

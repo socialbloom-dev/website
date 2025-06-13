@@ -148,7 +148,7 @@ export default function PrebookPage() {
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-[#2DE6C4] text-2xl">★★★★★</span>
-                <span className="text-[#2DE6C4] font-bold text-lg">4.6</span>
+                <span className="text-[#2DE6C4] font-bold text-lg">5</span>
                 <span className="text-white/80 text-base ml-1">Google Reviews</span>
               </div>
             </div>
