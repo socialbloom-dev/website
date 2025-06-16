@@ -826,7 +826,7 @@ export default function SocialBloomWebsite() {
             >
               <motion.div className="mb-3 sm:mb-4" whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
                 <Image
-                  src="/images/social-bloom-logo.png"
+                  src="/Logo.png"
                   alt="Social Bloom"
                   width={280}
                   height={80}

@@ -51,7 +51,7 @@ export default function SiteHeader() {
               <motion.div className="flex items-center" whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
                 <Link href="/">
                   <Image
-                    src="/images/social-bloom-logo.png"
+                    src="/Logo.png"
                     alt="Social Bloom"
                     width={200}
                     height={60}
