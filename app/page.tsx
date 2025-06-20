@@ -14,11 +14,20 @@ import {
   AlertCircle,
   Target,
   CheckCircle,
+  HelpCircle,
+  LinkIcon,
+  Crown,
+  Wrench,
+  Rocket,
+  TrendingUp,
+  Key,
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useModal } from "@/context/modal-context"
 import { services, faqs, caseStudies, testimonials, chartData, statsData, ctaStats } from "@/lib/static-data"
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 
 export default function SocialBloomWebsite() {
   const [activeService, setActiveService] = useState("outbound")
@@ -90,7 +99,7 @@ export default function SocialBloomWebsite() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
-              Predictable, Data-Driven Growth That Delivers <span className="text-[#2DE6C4]">10X More ROI</span>
+              Own Your <span className="text-[#2DE6C4]">Growth Engine</span>
             </motion.h1>
             <motion.p
               className="text-sm sm:text-base md:text-lg lg:text-xl text-white/70 mb-6 sm:mb-8 md:mb-10 max-w-4xl mx-auto leading-relaxed px-2"
@@ -98,30 +107,38 @@ export default function SocialBloomWebsite() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.4 }}
             >
-              Socialbloom is your silver bullet for unlocking scalable growth through omnichannel marketing solutions.
+              The only agency that guarantees results AND transfers complete ownership
+            </motion.p>
+            <motion.p
+              className="text-base sm:text-lg md:text-xl text-white/80 mb-8 sm:mb-10 md:mb-12 max-w-5xl mx-auto leading-relaxed px-2"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.6 }}
+            >
+              Stop gambling with your marketing budget. Most agencies lock you into endless monthly fees with unpredictable results. We build your growth engine, prove it works with guaranteed results, then hand you the keys. Calculate your ROI before you start, then own and control your growth system forever.
             </motion.p>
             <motion.div
               className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-8 sm:mb-10 md:mb-12 px-2"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.6 }}
+              transition={{ duration: 1, delay: 0.8 }}
             >
               <motion.button
                 onClick={() => setIsCalendarModalOpen(true)}
-                className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold rounded-full text-[#2DE6C4] bg-white/15 hover:bg-white/25 border border-[#2DE6C4] transition-all duration-300 shadow-lg"
+                className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold rounded-full text-white bg-[#2DE6C4] hover:bg-[#2DE6C4]/90 border border-[#2DE6C4] transition-all duration-300 shadow-lg"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Book a Call
+                Calculate My ROI
               </motion.button>
-              <motion.a
-                href="#case-studies"
+              <motion.button
+                onClick={() => setIsCalendarModalOpen(true)}
                 className="w-full sm:w-auto border-2 border-gray-500 text-gray-400 hover:bg-gray-500/10 hover:border-gray-400 rounded-full px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base backdrop-blur-sm transition-all duration-300 bg-transparent flex items-center justify-center gap-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Case Studies <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-              </motion.a>
+                See How It Works <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+              </motion.button>
             </motion.div>
 
             {/* Trust Badges */}
@@ -270,265 +287,236 @@ export default function SocialBloomWebsite() {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="services" className="py-12 sm:py-16 md:py-20 px-3 sm:px-4 md:px-6">
-        <div className="w-full max-w-7xl mx-auto">
+      {/* Agency Problem Section */}
+      <section className="py-12 md:py-20 px-3 sm:px-4 md:px-6">
+        <div className="container mx-auto px-4">
           <motion.div
-            className="text-center mb-8 sm:mb-10 md:mb-12"
+            className="text-center mb-12 md:mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
-              Our <span className="text-[#2DE6C4]">Services</span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+              The <span className="text-[#2DE6C4]">Agency Problem</span>
             </h2>
+            <p className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto">
+              Most agencies leave you with two major problems that keep you trapped
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             <motion.div
-              className="bg-[#16213e]/60 backdrop-blur-[30px] border border-[#4a5568]/30 rounded-xl sm:rounded-2xl p-4 sm:p-6 max-w-3xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <p className="text-white/80 text-sm sm:text-base md:text-lg leading-relaxed">
-                Discover our comprehensive suite of marketing solutions designed to drive measurable growth and maximize
-                your ROI.
-              </p>
+              <Card className="bg-slate-700/50 border-slate-600 text-white shadow-xl h-full">
+                <CardHeader className="text-center">
+                  <div className="flex justify-center mb-4">
+                    <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center">
+                      <HelpCircle className="w-8 h-8 text-red-400" />
+                    </div>
+                  </div>
+                  <CardTitle className="text-2xl text-red-400">No Guarantees</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <p className="text-white/80 leading-relaxed">
+                    You're gambling with your marketing budget. No way to predict ROI upfront. Agencies get paid whether you succeed or fail. Months of spending with uncertain outcomes.
+                  </p>
+                </CardContent>
+              </Card>
             </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <Card className="bg-slate-700/50 border-slate-600 text-white shadow-xl h-full">
+                <CardHeader className="text-center">
+                  <div className="flex justify-center mb-4">
+                    <div className="w-16 h-16 bg-orange-500/20 rounded-full flex items-center justify-center">
+                      <LinkIcon className="w-8 h-8 text-orange-400" />
+                    </div>
+                  </div>
+                  <CardTitle className="text-2xl text-orange-400">Endless Dependency</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <p className="text-white/80 leading-relaxed">
+                    You never own anything. Stop paying, everything stops working. You're trapped in ongoing fees forever. No control over your own growth systems.
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
+
+          <motion.div
+            className="text-center mt-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="bg-red-500/10 border border-red-500/30 rounded-2xl p-6 md:p-8 max-w-4xl mx-auto">
+              <h3 className="text-xl md:text-2xl font-bold text-red-400 mb-2">
+                Result: Unpredictable costs, no ownership, endless risk
+              </h3>
+            </div>
           </motion.div>
 
           <motion.div
-            className="max-w-6xl mx-auto"
-            initial={{ opacity: 0, y: 50 }}
+            className="text-center mt-8"
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            {/* Service Selector */}
-            <div className="flex justify-center mb-8 sm:mb-10 md:mb-12 px-2">
-              <div className="bg-[#16213e]/60 backdrop-blur-[30px] border border-[#4a5568]/30 rounded-full p-1 sm:p-2 shadow-2xl w-full max-w-4xl mx-auto">
-                <div className="flex gap-1 sm:gap-2 justify-center">
-                  {[
-                    { key: "outbound", label: "Outbound Marketing" },
-                    { key: "inbound", label: "Inbound Marketing" },
-                  ].map((service) => (
-                    <motion.button
-                      key={service.key}
-                      onClick={() => setActiveService(service.key)}
-                      className={`px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 rounded-full font-semibold transition-all duration-500 relative overflow-hidden text-xs sm:text-sm md:text-base whitespace-nowrap ${
-                        activeService === service.key
-                          ? "text-white shadow-lg"
-                          : "text-white/70 hover:text-white hover:bg-white/10 backdrop-blur-[20px]"
-                      }`}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      {activeService === service.key && (
-                        <motion.div
-                          className="absolute inset-0 bg-white/15 backdrop-blur-[20px] border border-[#2DE6C4]/50 rounded-full"
-                          layoutId="activeService"
-                          transition={{ duration: 0.5, ease: "easeInOut" }}
-                        />
-                      )}
-                      <span className="relative z-10">{service.label}</span>
-                    </motion.button>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeService}
-                initial={{ opacity: 0, x: 100 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -100 }}
-                transition={{ duration: 0.5 }}
-                className="bg-[#16213e]/60 backdrop-blur-[30px] border border-[#4a5568]/30 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-10 shadow-2xl"
-              >
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-start">
-                  <div className="space-y-4 sm:space-y-6">
-                    <motion.div
-                      className="bg-[#2d3748]/40 backdrop-blur-[20px] border border-[#4a5568]/30 rounded-xl sm:rounded-2xl p-4 sm:p-6"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-[#2DE6C4] leading-tight">
-                        {services[activeService].title}
-                      </h3>
-                    </motion.div>
-                    <motion.div
-                      className="bg-[#2d3748]/40 backdrop-blur-[20px] border border-[#4a5568]/30 rounded-xl sm:rounded-2xl p-4 sm:p-6"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.1 }}
-                    >
-                      <p className="text-white/80 text-sm sm:text-base md:text-lg leading-relaxed">
-                        {services[activeService].description}
-                      </p>
-                    </motion.div>
-                  </div>
-
-                  {/* Dashboard Animation */}
-                  <div className="space-y-3 sm:space-y-4">
-                    <motion.div
-                      className="bg-[#2d3748]/40 backdrop-blur-[20px] border border-[#4a5568]/30 rounded-xl sm:rounded-2xl p-3 sm:p-4"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.1 }}
-                    >
-                      <div className="flex justify-center items-center space-x-1 sm:space-x-2">
-                        {[
-                          { src: "/images/caleb.jpeg", alt: "Caleb" },
-                          { src: "/images/dustin.jpeg", alt: "Dustin" },
-                          { src: "/images/client-1.png", alt: "Team Member" },
-                        ].map((member, index) => (
-                          <motion.div
-                            key={index}
-                            className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white relative shadow-lg overflow-hidden"
-                            whileHover={{ scale: 1.1 }}
-                          >
-                            <Image
-                              src={member.src || "/placeholder.svg"}
-                              alt={member.alt}
-                              fill
-                              className="object-cover"
-                            />
-                            <div className="absolute -top-0.5 -right-0.5 sm:-top-1 sm:-right-1 w-2 h-2 sm:w-3 sm:h-3 bg-[#2DE6C4] rounded-full border-2 border-white animate-pulse" />
-                          </motion.div>
-                        ))}
-                      </div>
-                    </motion.div>
-
-                    <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                      <motion.div
-                        className="bg-[#2d3748]/40 backdrop-blur-[20px] border border-[#4a5568]/30 rounded-xl sm:rounded-2xl p-3 sm:p-4 text-center"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                        whileHover={{ scale: 1.05 }}
-                      >
-                        <div className="text-lg sm:text-xl md:text-2xl font-bold text-[#2DE6C4] mb-1">
-                          {services[activeService].revenue}
-                        </div>
-                        <div className="text-white/80 text-xs sm:text-sm">Generated</div>
-                      </motion.div>
-                      <motion.div
-                        className="bg-[#2d3748]/40 backdrop-blur-[20px] border border-[#4a5568]/30 rounded-xl sm:rounded-2xl p-3 sm:p-4 text-center"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.3 }}
-                        whileHover={{ scale: 1.05 }}
-                      >
-                        <div className="text-lg sm:text-xl md:text-2xl font-bold text-[#2DE6C4] mb-1">
-                          {services[activeService].goal}
-                        </div>
-                        <div className="text-white/80 text-xs sm:text-sm">Weekly Growth Goal</div>
-                      </motion.div>
-                    </div>
-
-                    {activeService !== "leadgen" && (
-                      <motion.div
-                        className="bg-[#2d3748]/40 backdrop-blur-[20px] border border-[#4a5568]/30 rounded-xl sm:rounded-2xl p-3 sm:p-4"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.4 }}
-                        whileHover={{ scale: 1.02 }}
-                      >
-                        <div className="flex items-center gap-2 sm:gap-3">
-                          <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-[#2DE6C4] flex-shrink-0" />
-                          <span className="text-white/80 text-xs sm:text-sm">Jan 19th 9am CST - Touching base</span>
-                        </div>
-                      </motion.div>
-                    )}
-
-                    <div className="space-y-2 sm:space-y-3">
-                      {activeService === "leadgen" && (
-                        <motion.div
-                          className="bg-[#2d3748]/40 backdrop-blur-[20px] border border-[#4a5568]/30 rounded-xl sm:rounded-2xl p-3 sm:p-4 text-center mb-3 sm:mb-4"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.5, delay: 0.4 }}
-                        >
-                          <div className="text-lg sm:text-xl font-bold text-white mb-2">High Quality Leads</div>
-                        </motion.div>
-                      )}
-                      {services[activeService].channels.map((channel, index) => (
-                        <motion.div
-                          key={index}
-                          className="bg-[#2d3748]/40 backdrop-blur-[20px] border border-[#4a5568]/30 rounded-xl sm:rounded-2xl p-3 sm:p-4 flex justify-between items-center"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                          whileHover={{ scale: 1.02, backgroundColor: "rgba(102, 126, 234, 0.1)" }}
-                        >
-                          <span className="text-white/80 font-medium text-xs sm:text-sm">{channel.name}</span>
-                          <span className="text-[#2DE6C4] font-bold text-xs sm:text-sm">{channel.amount}</span>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </AnimatePresence>
+            <p className="text-2xl md:text-3xl font-bold text-[#2DE6C4]">
+              There's a better way...
+            </p>
           </motion.div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section id="faq" className="py-12 sm:py-16 md:py-20 px-3 sm:px-4 md:px-6">
-        <div className="w-full max-w-4xl mx-auto">
-          <motion.h2
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-8 sm:mb-12 md:mb-16"
+      {/* Solution Section */}
+      <section className="py-12 md:py-20 px-3 sm:px-4 md:px-6">
+        <div className="container mx-auto px-4">
+          <motion.div
+            className="text-center mb-12 md:mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            Answering Your <span className="text-[#2DE6C4]">Common Questions</span>
-          </motion.h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+              The <span className="text-[#2DE6C4]">Social Bloom Solution</span>
+            </h2>
+            <p className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto">
+              Guaranteed results AND complete ownership
+            </p>
+          </motion.div>
 
-          <div className="space-y-3 sm:space-y-4">
-            {faqs.map((faq, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <Card className="bg-slate-700/50 border-slate-600 text-white shadow-xl h-full">
+                <CardHeader className="text-center">
+                  <div className="flex justify-center mb-4">
+                    <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center">
+                      <Target className="w-8 h-8 text-green-400" />
+                    </div>
+                  </div>
+                  <CardTitle className="text-2xl text-green-400">Guaranteed Results</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <p className="text-white/80 leading-relaxed">
+                    We guarantee specific, measurable results so you can calculate your ROI before we even begin. No gambling, no uncertainty.
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <Card className="bg-slate-700/50 border-slate-600 text-white shadow-xl h-full">
+                <CardHeader className="text-center">
+                  <div className="flex justify-center mb-4">
+                    <div className="w-16 h-16 bg-[#2DE6C4]/20 rounded-full flex items-center justify-center">
+                      <Crown className="w-8 h-8 text-[#2DE6C4]" />
+                    </div>
+                  </div>
+                  <CardTitle className="text-2xl text-[#2DE6C4]">Complete Ownership</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <p className="text-white/80 leading-relaxed">
+                    You own your complete growth system. No ongoing fees. No dependencies. Your marketing engine belongs to you forever.
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* How We Transfer Ownership Section */}
+      <section className="py-12 md:py-20 px-3 sm:px-4 md:px-6">
+        <div className="container mx-auto px-4">
+          <motion.div
+            className="text-center mb-12 md:mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+              The <span className="text-[#2DE6C4]">Full Throttle Growth Engine</span> Process
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            {[
+              {
+                phase: "Phase 1: Build",
+                icon: Wrench,
+                copy: "We analyze your data, refine your ICP and offer, build your tailored lead generation strategy, and launch campaigns 100% done-for-you.",
+                color: "bg-blue-500/20",
+                iconColor: "text-blue-400"
+              },
+              {
+                phase: "Phase 2: Campaign Management",
+                icon: Rocket,
+                copy: "We run your campaigns and provide comprehensive training while you start seeing results and learning the system.",
+                color: "bg-purple-500/20",
+                iconColor: "text-purple-400"
+              },
+              {
+                phase: "Phase 3: Full Throttle Services",
+                icon: TrendingUp,
+                copy: "Access to our platform and ongoing coaching while you master the system and prepare for complete ownership.",
+                color: "bg-green-500/20",
+                iconColor: "text-green-400"
+              },
+              {
+                phase: "Phase 4: Lifetime Access",
+                icon: Key,
+                copy: "Permanent access to all training materials and tools. You own your growth engine forever.",
+                color: "bg-[#2DE6C4]/20",
+                iconColor: "text-[#2DE6C4]"
+              }
+            ].map((phase, index) => (
               <motion.div
                 key={index}
-                className="bg-[#16213e]/60 backdrop-blur-[30px] border border-[#4a5568]/30 rounded-xl sm:rounded-2xl overflow-hidden shadow-xl"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.02 }}
               >
-                <motion.button
-                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                  className="w-full p-4 sm:p-6 text-left flex justify-between items-center hover:bg-[#4a5568]/20 transition-all duration-300"
-                  whileHover={{ backgroundColor: "rgba(74, 85, 104, 0.2)" }}
-                >
-                  <span className="text-white font-semibold pr-4 text-sm sm:text-base md:text-lg">{faq.question}</span>
-                  <motion.div animate={{ rotate: openFaq === index ? 45 : 0 }} transition={{ duration: 0.3 }}>
-                    {openFaq === index ? (
-                      <Minus className="w-5 h-5 sm:w-6 sm:h-6 text-[#2DE6C4] flex-shrink-0" />
-                    ) : (
-                      <Plus className="w-5 h-5 sm:w-6 sm:h-6 text-[#2DE6C4] flex-shrink-0" />
-                    )}
-                  </motion.div>
-                </motion.button>
-                <AnimatePresence>
-                  {openFaq === index && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden"
-                    >
-                      <div className="p-4 sm:p-6 pt-0 text-white/80 leading-relaxed text-sm sm:text-base md:text-lg">
-                        {faq.answer}
+                <Card className="bg-slate-700/50 border-slate-600 text-white shadow-xl h-full">
+                  <CardHeader className="text-center">
+                    <div className="flex justify-center mb-4">
+                      <div className={`w-16 h-16 ${phase.color} rounded-full flex items-center justify-center`}>
+                        <phase.icon className={`w-8 h-8 ${phase.iconColor}`} />
                       </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                    </div>
+                    <CardTitle className="text-lg text-[#2DE6C4]">{phase.phase}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-center">
+                    <p className="text-white/80 leading-relaxed text-sm">
+                      {phase.copy}
+                    </p>
+                  </CardContent>
+                </Card>
               </motion.div>
             ))}
           </div>
@@ -711,95 +699,177 @@ export default function SocialBloomWebsite() {
         </div>
       </section>
 
-      {/* Call to Action Section */}
-      <section className="py-12 sm:py-16 md:py-20 px-3 sm:px-4 md:px-6">
-        <div className="w-full max-w-7xl mx-auto text-center">
+      {/* Guarantee Section */}
+      <section className="py-12 md:py-20 px-3 sm:px-4 md:px-6">
+        <div className="container mx-auto px-4">
           <motion.div
-            className="bg-[#16213e]/60 backdrop-blur-[30px] border border-[#4a5568]/30 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 max-w-5xl mx-auto shadow-2xl"
-            initial={{ opacity: 0, y: 50 }}
+            className="text-center mb-12 md:mb-16"
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            whileHover={{ scale: 1.02 }}
           >
-            <motion.h2
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              Unlock <span className="text-[#2DE6C4]">Hidden Growth</span> Today
-            </motion.h2>
-            <motion.p
-              className="text-sm sm:text-base md:text-lg lg:text-xl text-white/80 mb-6 sm:mb-8 md:mb-10 max-w-3xl mx-auto leading-relaxed"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              Join over 100's of businesses that have unlocked 10X ROI with us—scaling faster and dominating their markets.
-            </motion.p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+              <span className="text-[#2DE6C4]">Performance Guarantee</span>
+            </h2>
+            <p className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto">
+              Specific commitments, not vague promises
+            </p>
+          </motion.div>
 
+          <div className="max-w-4xl mx-auto">
             <motion.div
-              className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-6 sm:mb-8 md:mb-10"
+              className="bg-slate-700/50 border border-slate-600 rounded-2xl p-8 md:p-12 shadow-xl mb-8"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              {ctaStats.map((stat, index) => (
-                <motion.div
-                  key={index}
-                  className="text-center"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div
-                    className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1 sm:mb-2"
-                    style={{ color: stat.color }}
+              <p className="text-white/90 text-lg md:text-xl leading-relaxed mb-8">
+                We guarantee specific, measurable results that allow you to calculate your exact ROI before we even begin. This guarantee requires your active participation and cooperation in the process. If we don't deliver the guaranteed results and you've held up your end, you're protected.
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {[
+                  "Specific, measurable commitments",
+                  "Calculate ROI before you start",
+                  "Performance-based protection",
+                  "Clear cooperation requirements",
+                  "Predictable, guaranteed outcomes"
+                ].map((feature, index) => (
+                  <motion.div
+                    key={index}
+                    className="flex items-center gap-3"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
                   >
-                    {stat.value}
-                  </div>
-                  <div className="text-white/80 text-sm sm:text-base md:text-lg">{stat.label}</div>
-                </motion.div>
-              ))}
+                    <CheckCircle className="w-5 h-5 text-[#2DE6C4] flex-shrink-0" />
+                    <span className="text-white/80">{feature}</span>
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
 
             <motion.div
-              className="flex flex-col sm:flex-row justify-center gap-6 sm:gap-12 mb-6 sm:mb-8 md:mb-10"
+              className="text-center"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              {[
-                { rating: "4.9", platform: "Clutch" },
-                { rating: "5", platform: "Google Reviews" },
-              ].map((badge) => (
-                <motion.div
-                  key={badge.platform}
-                  className="flex items-center justify-center gap-2 sm:gap-3"
-                  whileHover={{ scale: 1.1 }}
-                >
-                  <div className="flex">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 fill-[#2DE6C4] text-[#2DE6C4]" />
-                    ))}
-                  </div>
-                  <span className="text-[#2DE6C4] font-bold text-xs sm:text-sm md:text-base">{badge.rating}</span>
-                  <span className="text-white font-medium text-xs sm:text-sm md:text-base">{badge.platform}</span>
-                </motion.div>
-              ))}
+              <Button
+                onClick={() => setIsCalendarModalOpen(true)}
+                className="bg-[#2DE6C4] hover:bg-[#2DE6C4]/90 text-white px-8 py-4 rounded-full text-lg"
+              >
+                Get My ROI Calculation
+              </Button>
             </motion.div>
+          </div>
+        </div>
+      </section>
 
+      {/* FAQ Section */}
+      <section id="faq" className="py-12 sm:py-16 md:py-20 px-3 sm:px-4 md:px-6">
+        <div className="w-full max-w-4xl mx-auto">
+          <motion.h2
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-8 sm:mb-12 md:mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            Frequently Asked <span className="text-[#2DE6C4]">Questions</span>
+          </motion.h2>
+
+          <div className="space-y-3 sm:space-y-4">
+            {[
+              {
+                question: "Why should I go with Social Bloom? What makes you different from similar agencies?",
+                answer: "Unlike other agencies that lock you into endless monthly fees, Social Bloom builds your growth engine, proves it works, then transfers ownership to you. You get guaranteed results AND complete ownership of your marketing system. We're the only agency that empowers you with your own growth engine instead of keeping you dependent on us forever."
+              },
+              {
+                question: "What exactly do I 'own' when you transfer ownership?",
+                answer: "You own your complete lead generation system including all campaigns, messaging, contact lists, processes, and access to our training materials and tools. You get lifetime access to our SOPs, training materials, and client community. However, our proprietary AI tools and intellectual property remain ours - you get access to use them, not ownership."
+              },
+              {
+                question: "What does your performance guarantee actually cover?",
+                answer: "We guarantee specific, measurable results that allow you to calculate your exact ROI before we even begin. The specific commitments depend on your business and goals, which we determine during our discovery process. This guarantee requires your active participation and cooperation throughout the process."
+              },
+              {
+                question: "What happens if I don't cooperate or participate actively?",
+                answer: "Your active participation is essential for success. But it's stuff you should expect to do like providing information we need, responding to communications from us and interested leads, implementing recommendations, attending scheduled calls, and following our RedZone process. If you don't do your part, we can't guarantee your success."
+              },
+              {
+                question: "How long does it take to transfer complete ownership?",
+                answer: "You get immediate access to training materials and tools, but full ownership transfer happens progressively through our proven process. We'll walk you through the exact timeline during our discovery call, as it can vary based on your specific situation and goals."
+              },
+              {
+                question: "What if my business changes or I want to target new markets?",
+                answer: "Since you own your growth system and have lifetime access to our training materials and processes, you can adapt and scale as needed. The beauty of ownership is having complete control to modify and expand your marketing as your business evolves."
+              },
+              {
+                question: "What makes you confident this approach works better than traditional agencies?",
+                answer: "Our 100% client success rate speaks for itself. When clients own their growth engine, they're more invested in making it work and can optimize it for their specific needs. Plus, they save thousands in ongoing agency fees while maintaining complete control. The ownership model creates better alignment between our success and yours."
+              },
+              {
+                question: "Do I need marketing expertise to run the system after transfer?",
+                answer: "No, the system is designed to be manageable by any business team. You get comprehensive training, lifetime access to our SOPs and materials, plus access to our tools and community. Most clients successfully run and scale their systems without needing marketing experts on staff."
+              },
+              {
+                question: "What happens if something stops working after ownership transfer?",
+                answer: "You have lifetime access to our training materials, SOPs, and client community for ongoing support. The system is built to be sustainable and scalable, and you'll have all the knowledge and tools needed to maintain and optimize your owned system."
+              }
+            ].map((faq, index) => (
+              <FAQItem key={index} faq={faq} index={index} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-12 md:py-20 px-3 sm:px-4 md:px-6">
+        <div className="container mx-auto px-4 flex justify-center">
+          <motion.div
+            className="w-full max-w-4xl rounded-3xl bg-[#181f3a]/90 border border-[#2DE6C4]/10 shadow-2xl p-8 md:p-16 flex flex-col items-center text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-white">
+              Trusted By Leading Brands, <span className="text-[#2DE6C4]">Backed By Proven Results</span>
+            </h2>
+            <div className="flex flex-col md:flex-row justify-center gap-8 mb-8 w-full">
+              <div className="flex-1">
+                <div className="text-3xl md:text-4xl font-bold text-[#2DE6C4] mb-2">$200M</div>
+                <div className="text-white/80 text-base md:text-lg">Generated for our clients</div>
+              </div>
+              <div className="flex-1">
+                <div className="text-3xl md:text-4xl font-bold text-[#2DE6C4] mb-2">18,000</div>
+                <div className="text-white/80 text-base md:text-lg">Leads Generated</div>
+              </div>
+              <div className="flex-1">
+                <div className="text-3xl md:text-4xl font-bold text-[#2DE6C4] mb-2">100%</div>
+                <div className="text-white/80 text-base md:text-lg">Client Success</div>
+              </div>
+            </div>
+            <div className="flex flex-col md:flex-row justify-center items-center gap-8 mb-8">
+              <div className="flex items-center gap-2">
+                <span className="text-[#2DE6C4] text-2xl">★★★★★</span>
+                <span className="text-[#2DE6C4] font-bold text-lg">4.9</span>
+                <span className="text-white/80 text-base md:text-lg">Clutch</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-[#2DE6C4] text-2xl">★★★★★</span>
+                <span className="text-[#2DE6C4] font-bold text-lg">5</span>
+                <span className="text-white/80 text-base md:text-lg">Google Reviews</span>
+              </div>
+            </div>
             <motion.button
               onClick={() => setIsCalendarModalOpen(true)}
-              className="w-full max-w-xs mx-auto px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold rounded-full text-[#2DE6C4] bg-white/15 hover:bg-white/25 border border-[#2DE6C4] transition-all duration-300 shadow-lg"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1 }}
-              viewport={{ once: true }}
+              className="mt-2 px-8 py-3 rounded-full border border-[#2DE6C4] text-[#2DE6C4] font-semibold text-lg hover:bg-[#2DE6C4]/10 transition-all"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -891,5 +961,51 @@ export default function SocialBloomWebsite() {
         </motion.a>
       </motion.div>
     </div>
+  )
+}
+
+function FAQItem({ faq, index }: { faq: { question: string, answer: string }, index: number }) {
+  const [openFaq, setOpenFaq] = useState(false)
+
+  return (
+    <motion.div
+      key={index}
+      className="bg-[#16213e]/60 backdrop-blur-[30px] border border-[#4a5568]/30 rounded-xl sm:rounded-2xl overflow-hidden shadow-xl"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      viewport={{ once: true }}
+      whileHover={{ scale: 1.02 }}
+    >
+      <motion.button
+        onClick={() => setOpenFaq(!openFaq)}
+        className="w-full p-4 sm:p-6 text-left flex justify-between items-center hover:bg-[#4a5568]/20 transition-all duration-300"
+        whileHover={{ backgroundColor: "rgba(74, 85, 104, 0.2)" }}
+      >
+        <span className="text-white font-semibold pr-4 text-sm sm:text-base md:text-lg">{faq.question}</span>
+        <motion.div animate={{ rotate: openFaq ? 45 : 0 }} transition={{ duration: 0.3 }}>
+          {openFaq ? (
+            <Minus className="w-5 h-5 sm:w-6 sm:h-6 text-[#2DE6C4] flex-shrink-0" />
+          ) : (
+            <Plus className="w-5 h-5 sm:w-6 sm:h-6 text-[#2DE6C4] flex-shrink-0" />
+          )}
+        </motion.div>
+      </motion.button>
+      <AnimatePresence>
+        {openFaq && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="overflow-hidden"
+          >
+            <div className="p-4 sm:p-6 pt-0 text-white/80 leading-relaxed text-sm sm:text-base md:text-lg">
+              {faq.answer}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
   )
 }
