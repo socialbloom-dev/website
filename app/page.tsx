@@ -450,7 +450,7 @@ export default function SocialBloomWebsite() {
       </section>
 
       {/* How We Transfer Ownership Section */}
-      <section className="py-12 md:py-20 px-3 sm:px-4 md:px-6">
+      <section id="process" className="py-12 md:py-20 px-3 sm:px-4 md:px-6">
         <div className="container mx-auto px-4">
           <motion.div
             className="text-center mb-12 md:mb-16"

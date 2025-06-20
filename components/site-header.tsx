@@ -63,30 +63,8 @@ export default function SiteHeader() {
 
               {/* Desktop Navigation */}
               <div className="hidden lg:flex items-center space-x-6 xl:space-x-10">
-                <div className="relative group">
-                  <motion.button
-                    className="text-white hover:text-[#2DE6C4] transition-all duration-300 flex items-center gap-2 font-medium text-sm xl:text-base"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    Services{" "}
-                    <ChevronDown className="relative top-[1px] ml-1 h-3 w-3 xl:w-4 xl:h-4 transition-transform group-hover:rotate-180" />
-                  </motion.button>
-                  <motion.div className="absolute top-full left-0 mt-3 w-48 xl:w-56 bg-[#16213e]/95 backdrop-blur-[30px] border border-[#4a5568]/30 rounded-2xl p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-2xl">
-                    <Link
-                      href="/services/inbound"
-                      className="block px-4 py-3 text-white hover:text-[#2DE6C4] hover:bg-[#4a5568]/20 rounded-xl transition-all duration-300 text-sm"
-                    >
-                      Inbound Marketing
-                    </Link>
-                    <Link
-                      href="/services/outbound"
-                      className="block px-4 py-3 text-white hover:text-[#2DE6C4] hover:bg-[#4a5568]/20 rounded-xl transition-all duration-300 text-sm"
-                    >
-                      Outbound Marketing
-                    </Link>
-                  </motion.div>
-                </div>
                 {[
+                  { name: "Our Process", href: "/#process" },
                   { name: "FAQ", href: "/#faq" },
                   { name: "Case Studies", href: "/#case-studies" },
                 ].map((item) => (
@@ -145,8 +123,7 @@ export default function SiteHeader() {
                 >
                   <div className="space-y-3">
                     {[
-                      { href: "/services/inbound", label: "Inbound Marketing" },
-                      { href: "/services/outbound", label: "Outbound Marketing" },
+                      { href: "/#process", label: "Our Process" },
                       { href: "/#faq", label: "FAQ" },
                       { href: "/#case-studies", label: "Case Studies" },
                       { href: "/blog", label: "Blog" },
