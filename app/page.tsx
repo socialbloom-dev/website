@@ -786,7 +786,7 @@ export default function SocialBloomWebsite() {
           <div className="space-y-3 sm:space-y-4">
             {[
               {
-                question: "Why should I go with Social Bloom? What makes you different from similar agencies?",
+                question: "Why should I go with SocialBloom? What makes you different from similar agencies?",
                 answer: "Unlike other agencies that lock you into endless monthly fees, Social Bloom builds your growth engine, proves it works, then transfers ownership to you. You get guaranteed results AND complete ownership of your marketing system. We're the only agency that empowers you with your own growth engine instead of keeping you dependent on us forever."
               },
               {
@@ -799,7 +799,7 @@ export default function SocialBloomWebsite() {
               },
               {
                 question: "What happens if I don't cooperate or participate actively?",
-                answer: "Your active participation is essential for success. But it's stuff you should expect to do like providing information we need, responding to communications from us and interested leads, implementing recommendations, attending scheduled calls, and following our RedZone process. If you don't do your part, we can't guarantee your success."
+                answer: "We guarantee specific, measurable results that allow you to calculate your exact ROI before we even begin. The specific commitments depend on your business and goals, which we determine during our discovery process. Obviously, your active participation and cooperation is required. But if we don't hit the guarantee... you get a refund!"
               },
               {
                 question: "How long does it take to transfer complete ownership?",
