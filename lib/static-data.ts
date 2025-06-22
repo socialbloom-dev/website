@@ -171,20 +171,32 @@ export const testimonials = [
   {
     name: "Edward Liveikis",
     title: "Managing Partner @ Ardent Blue",
-    quote:
-      "We wouldn't have achieved this level of growth without SocialBloom. Thanks to them, we generated over $800K in less than a month.",
+    quote: "We wouldn't have achieved this level of growth without SocialBloom. Thanks to them, we generated over $800K in less than a month.",
+    company: "Ardent Blue",
+    revenue: "$800K",
+    timeframe: "Generated In 1 Month",
+    bgColor: "bg-indigo-400",
+    textColor: "text-indigo-400"
   },
   {
     name: "Jaafar Zerrouq",
     title: "Founder @ Luster Social",
-    quote:
-      "We literally generated over $400K in eight weeks -- incredible results! I love their approach and the way they work.",
+    quote: "We literally generated over $400K in eight weeks -- incredible results! I love their approach and the way they work.",
+    company: "Luster Social",
+    revenue: "$476K",
+    timeframe: "Generated In 2 Months",
+    bgColor: "bg-teal-400",
+    textColor: "text-teal-400"
   },
   {
     name: "Andrew Watson",
     title: "Head Of Sales @ Bifrost",
-    quote:
-      "Over the past 2.5 years, their strategies have helped us achieve $12 million generated. I can't recommend SocialBloom enough!",
+    quote: "Over the past 2.5 years, their strategies have helped us achieve $12 million generated. I can't recommend SocialBloom enough!",
+    company: "Bifrost",
+    revenue: "$12.5M",
+    timeframe: "Generated In 1 Year",
+    bgColor: "bg-indigo-600",
+    textColor: "text-indigo-600"
   },
 ]
 

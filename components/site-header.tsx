@@ -64,9 +64,10 @@ export default function SiteHeader() {
               {/* Desktop Navigation */}
               <div className="hidden lg:flex items-center space-x-6 xl:space-x-10">
                 {[
-                  { name: "Our Process", href: "/#process" },
-                  { name: "FAQ", href: "/#faq" },
                   { name: "Case Studies", href: "/#case-studies" },
+                  { name: "Our Difference", href: "/#difference" },
+                  { name: "Guarantee", href: "/#guarantee" },
+                  { name: "FAQs", href: "/#faq" },
                 ].map((item) => (
                   <motion.a
                     key={item.name}
@@ -104,9 +105,9 @@ export default function SiteHeader() {
               <motion.div className="hidden lg:block" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <button
                   onClick={() => setIsCalendarModalOpen(true)}
-                  className="px-4 xl:px-6 py-2 xl:py-2.5 text-xs xl:text-sm font-semibold rounded-xl text-[#2DE6C4] bg-white/15 hover:bg-white/25 border border-[#2DE6C4] transition-all duration-300 shadow-lg"
+                  className="px-4 xl:px-6 py-2 xl:py-2.5 text-xs xl:text-sm font-semibold rounded-xl text-[#2DE6C4] bg-[#2DE6C4]/20 hover:bg-[#2DE6C4]/30 border border-[#2DE6C4] transition-all duration-300 shadow-lg"
                 >
-                  Book a Call
+                  Get Started
                 </button>
               </motion.div>
             </nav>
@@ -123,10 +124,10 @@ export default function SiteHeader() {
                 >
                   <div className="space-y-3">
                     {[
-                      { href: "/#process", label: "Our Process" },
-                      { href: "/#faq", label: "FAQ" },
                       { href: "/#case-studies", label: "Case Studies" },
-                      { href: "/blog", label: "Blog" },
+                      { href: "/#difference", label: "Our Difference" },
+                      { href: "/#guarantee", label: "Guarantee" },
+                      { href: "/#faq", label: "FAQs" },
                     ].map((link) => (
                       <Link
                         key={link.href}
@@ -142,11 +143,11 @@ export default function SiteHeader() {
                         setIsCalendarModalOpen(true)
                         setIsMobileMenuOpen(false)
                       }}
-                      className="w-full mt-4 px-4 py-3 text-sm font-semibold rounded-xl text-[#2DE6C4] bg-white/15 hover:bg-white/25 border border-[#2DE6C4] transition-all duration-300 shadow-lg"
+                      className="w-full mt-4 px-4 py-3 text-sm font-semibold rounded-xl text-[#2DE6C4] bg-[#2DE6C4]/20 hover:bg-[#2DE6C4]/30 border border-[#2DE6C4] transition-all duration-300 shadow-lg"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
-                      Book a Call
+                      Get Started
                     </motion.button>
                   </div>
                 </motion.div>
