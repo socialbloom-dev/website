@@ -37,7 +37,7 @@ const faqs = staticFaqs.map(faq =>
 )
 
 // Convert Google Drive link to embed format
-const googleDriveVideoId = "1T6ECGSy6S3k3l8dpYsnNzNILrzpxTml"
+const googleDriveVideoId = "1T6ECGSy6S3k3l8dpYsnNzNILrzpxTml-"
 const googleDriveEmbedUrl = `https://drive.google.com/file/d/${googleDriveVideoId}/preview`
 
 export default function PrebookPage() {
