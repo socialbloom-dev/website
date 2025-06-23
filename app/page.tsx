@@ -440,7 +440,7 @@ export default function SocialBloomWebsite() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-              How You'll <span className="text-[#2DE6C4]">Never Need Another</span> Agency Again
+              How You'll <span className="text-[#2DE6C4]">Never Need Another Agency</span> Again
             </h2>
              <p className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto">
               Get leads immediately while we build your permanent growth engine
@@ -880,6 +880,22 @@ export default function SocialBloomWebsite() {
                 <div className="text-white/80 text-base md:text-lg">Client Success</div>
               </div>
             </div>
+            <motion.div
+              className="mt-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <motion.button
+                onClick={() => setIsCalendarModalOpen(true)}
+                className="bg-[#2DE6C4] hover:bg-[#2DE6C4]/90 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 shadow-lg"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Guarantee Your Results Now
+              </motion.button>
+            </motion.div>
                 </motion.div>
         </div>
       </section>
