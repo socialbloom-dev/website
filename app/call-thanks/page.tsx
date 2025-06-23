@@ -36,10 +36,6 @@ const faqs = staticFaqs.map(faq =>
     : faq
 )
 
-// Convert Google Drive link to embed format
-const googleDriveVideoId = "1T6ECGSy6S3k3l8dpYsnNzNILrzpxTml-"
-const googleDriveEmbedUrl = `https://drive.google.com/file/d/${googleDriveVideoId}/preview`
-
 export default function PrebookPage() {
   return (
     <div className="flex flex-col min-h-screen bg-slate-900 text-white">
@@ -51,14 +47,15 @@ export default function PrebookPage() {
             <h1 className="text-4xl md:text-5xl font-bold mb-16 text-[#2DE6C4]">Watch This Before Our Call</h1>
             <div className="aspect-video max-w-4xl mx-auto rounded-lg overflow-hidden shadow-xl border border-[#2DE6C4]">
               <iframe
-                src={googleDriveEmbedUrl}
                 width="100%"
                 height="100%"
-                allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+                src="https://www.youtube.com/embed/a7oZ3XALzSM?si=7uqdKPwUuy5wNCHt"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
                 className="bg-slate-800"
-                title="Pre-call Video"
-                frameBorder="0"
               ></iframe>
             </div>
           </div>
