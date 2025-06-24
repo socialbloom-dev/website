@@ -215,7 +215,7 @@ export default function SocialBloomWebsite() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-              >
+          >
                 <h2 className="text-4xl md:text-5xl font-bold mb-8 text-white">
                   Trusted By Leading Brands, <br /><span className="text-[#2DE6C4]">Backed By Proven Results</span>
                 </h2>
@@ -238,28 +238,28 @@ export default function SocialBloomWebsite() {
           </section>
 
           {/* Testimonials Section */}
-          <section id="case-studies" className="pt-8 sm:pt-10 md:pt-12 px-3 sm:px-4 md:px-6">
-            <div className="w-full max-w-6xl mx-auto">
+          <section id="testimonials" className="pt-8 sm:pt-10 md:pt-12 px-3 sm:px-4 md:px-6">
+          <div className="w-full max-w-6xl mx-auto">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {testimonials.map((testimonial, index) => (
                   <FlippingTestimonialCard key={index} testimonial={testimonial} />
                 ))}
               </div>
             </div>
-            <motion.div
+                <motion.div
               className="text-center mt-12"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true }}
-            >
+                >
               <Button
                 onClick={() => setIsCalendarModalOpen(true)}
                 className="bg-[#2DE6C4] hover:bg-[#2DE6C4]/90 text-white px-8 py-4 rounded-full text-lg"
               >
                 See How We Guarantee Results
               </Button>
-            </motion.div>
+                </motion.div>
           </section>
         </div>
       </section>
@@ -301,7 +301,7 @@ export default function SocialBloomWebsite() {
                 <CardContent className="text-center">
                   <p className="text-white/80 leading-relaxed">
                     You're gambling with your marketing budget. No way to predict ROI upfront. Agencies get paid whether you succeed or fail. Months of spending with uncertain outcomes.
-                  </p>
+              </p>
                 </CardContent>
               </Card>
           </motion.div>
@@ -350,7 +350,7 @@ export default function SocialBloomWebsite() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
             viewport={{ once: true }}
-          >
+                    >
             <p className="text-2xl md:text-3xl font-bold text-[#2DE6C4]">
               There's a better way...
                       </p>
@@ -367,7 +367,7 @@ export default function SocialBloomWebsite() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-          >
+                    >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
               We're The <span className="text-[#2DE6C4]">Anti-Agency</span> Agency
             </h2>
@@ -385,7 +385,7 @@ export default function SocialBloomWebsite() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-            >
+                      >
               <Card className="bg-slate-700/50 border-slate-600 text-white shadow-xl h-full">
                 <CardHeader className="text-center">
                   <div className="flex justify-center mb-4">
@@ -408,7 +408,7 @@ export default function SocialBloomWebsite() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
-            >
+                      >
               <Card className="bg-slate-700/50 border-slate-600 text-white shadow-xl h-full">
                 <CardHeader className="text-center">
                   <div className="flex justify-center mb-4">
@@ -509,7 +509,7 @@ export default function SocialBloomWebsite() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
-          >
+                    >
             <Button
               onClick={() => setIsCalendarModalOpen(true)}
               className="bg-[#2DE6C4] hover:bg-[#2DE6C4]/90 text-white px-8 py-4 rounded-full text-lg"
@@ -757,7 +757,7 @@ export default function SocialBloomWebsite() {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                  >
+                >
                     <CheckCircle className="w-5 h-5 text-[#2DE6C4] flex-shrink-0" />
                     <span className="text-white/80">{feature}</span>
                 </motion.div>
@@ -778,7 +778,7 @@ export default function SocialBloomWebsite() {
               >
                 Get Your Guaranteed ROI
               </Button>
-            </motion.div>
+                </motion.div>
           </div>
         </div>
       </section>
@@ -858,10 +858,10 @@ export default function SocialBloomWebsite() {
         <div className="container mx-auto px-4 flex justify-center">
                 <motion.div
             className="w-full max-w-4xl rounded-3xl bg-[#181f3a]/90 border border-[#2DE6C4]/10 shadow-2xl p-8 md:p-12 flex flex-col items-center text-center"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+              viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white leading-tight">
               Get <span className="text-[#2DE6C4]">Data-Driven, AI-Powered, Guaranteed Results</span> TODAY!
@@ -890,11 +890,11 @@ export default function SocialBloomWebsite() {
               <motion.button
                 onClick={() => setIsCalendarModalOpen(true)}
                 className="bg-[#2DE6C4] hover:bg-[#2DE6C4]/90 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 shadow-lg"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
                 Guarantee Your Results Now
-              </motion.button>
+            </motion.button>
             </motion.div>
                 </motion.div>
         </div>
