@@ -964,7 +964,7 @@ export default function SocialBloomWebsite() {
               <div className="flex justify-center gap-4 sm:gap-6 mb-3 sm:mb-4">
                 <Link
                   href="/blog"
-                  className="text-[#2DE6C4] hover:text-white transition-all duration-300 text-xs sm:text-sm"
+                  className="text-white/70 hover:text-[#2DE6C4] transition-all duration-300 text-xs sm:text-sm"
                 >
                   Blog
                 </Link>
